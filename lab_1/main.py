@@ -78,6 +78,7 @@ final_oct.draw()
 
 #task 6
 #task2
+shape_gcode.draw()
 small_gcode = shape_gcode.transform([
     [1/1.5,0,0],
     [0, 1/1.5, 0],
