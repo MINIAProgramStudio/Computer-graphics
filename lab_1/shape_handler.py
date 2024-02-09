@@ -10,14 +10,12 @@ class ShapeContainer:
         max_y = min(self.shape.Y)
         return [(max_x+min_x)/2,(max_y+min_y)/2]
 
-    def __init__(self, shape = None, path = None):
-        if shape.empty and path:
-            raise Exception("Only one parameter can be given")
-        if not shape.empty^
-            self.shape = shape
-        if path:
-            self.shape = pd.read_csv(path, delimiter="	")
+    def __init__(self, shape = None):
+        self.shape = shape
 
     def draw(self):
         self.shape.plot(x = 'X', y = 'Y')
         plt.show()
+
+    def transform(self, matrix):
+        return ShapeContainer(pd.DataFrame([[row[0]*matrix[0][0]+row[1]*matrix[0][1]+matrix[0][2],row[0]*matrix[1][0]+row[1]*matrix[1][1]+matrix[1][2]] for row in self.shape.values.tolist()], columns=['X','Y']))
