@@ -18,4 +18,6 @@ class ShapeContainer:
         plt.show()
 
     def transform(self, matrix):
-        return ShapeContainer(pd.DataFrame([[row[0]*matrix[0][0]+row[1]*matrix[0][1]+matrix[0][2],row[0]*matrix[1][0]+row[1]*matrix[1][1]+matrix[1][2]] for row in self.shape.values.tolist()], columns=['X','Y']))
+        return ShapeContainer(pd.DataFrame([[float(row[0])*matrix[0][0]+float(row[1])*matrix[0][1]+matrix[0][2],
+                                             float(row[0])*matrix[1][0]+float(row[1])*matrix[1][1]+matrix[1][2]]
+                                            for row in self.shape.values.tolist()], columns=['X','Y']))
