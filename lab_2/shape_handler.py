@@ -52,6 +52,7 @@ class ShapeContainer3D:
         plt.show()
 
     def transform(self, matrix):
-        return ShapeContainer(pd.DataFrame([[float(row[0])*matrix[0][0]+float(row[1])*matrix[0][1]+matrix[0][2],
-                                             float(row[0])*matrix[1][0]+float(row[1])*matrix[1][1]+matrix[1][2]]
-                                            for row in self.shape.values.tolist()], columns=['X','Y']))
+        return ShapeContainer3D(pd.DataFrame([[float(row[0])*matrix[0][0]+float(row[1])*matrix[0][1]+float(row[2])*matrix[0][2]+matrix[0][3],
+                                             float(row[0])*matrix[1][0]+float(row[1])*matrix[1][1]+float(row[2])*matrix[1][2]+matrix[1][3],
+                                             float(row[0])*matrix[2][0]+float(row[1])*matrix[2][1]+float(row[2])*matrix[2][2]+matrix[2][3]]
+                                            for row in self.shape.values.tolist()], columns=['X','Y','Z']))
