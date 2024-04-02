@@ -47,7 +47,9 @@ class ShapeContainer3D:
         ax.set_xlabel('X')
         ax.set_ylabel('Y')
         ax.set_zlabel('Z')
-
+        ax.set_xlim(-5,5)
+        ax.set_ylim(-5,5)
+        ax.set_zlim(-5,5)
         # Показати графік
         plt.show()
 
