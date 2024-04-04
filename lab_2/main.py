@@ -182,3 +182,6 @@ cube_inverted_plane = cube_rerotated_oz.transform([
     [0,0,1, -D/C]
 ])
 cube_inverted_plane.draw()
+
+#task 6/7
+print("task 6")
