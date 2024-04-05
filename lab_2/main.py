@@ -40,15 +40,15 @@ cube_big_mirrored_zero = cube_big.transform([
 ])
 cube_big_mirrored_zero.draw()
 
-cube_big_mirrored_X = cube_big.transform([
+cube_big_mirrored_YOZ = cube_big.transform([
     [-1,0,0,0],
     [0,1,0,0],
     [0,0,1,0]
 ])
-cube_big_mirrored_X.draw()
+cube_big_mirrored_YOZ.draw()
 # task 4
 print("task 4")
-line_dot = [0,0,0]
+line_dot = [1,2,3]
 line_vector = [2,1,3]
 fi = 3.1415/3
 
@@ -120,13 +120,15 @@ cube_rotated_line.draw()
 print("task 5")
 point_1 = [1,1,2]
 point_2 = [3,5,8]
-point_3 = [13,21,29]
+point_3 = [13,21,34]
 A = (point_2[1]-point_1[1])*(point_3[2]-point_1[2]) - (point_2[2]-point_1[2])*(point_3[1]-point_1[1])
 B = -((point_2[0]-point_1[0])*(point_3[2]-point_1[2]) - (point_2[2]-point_1[2])*(point_3[0]-point_1[0]))
 C = (point_2[0]-point_1[0])*(point_3[1]-point_1[1]) - (point_2[1]-point_1[1])*(point_3[0]-point_1[0])
 D = -point_1[0]*A - point_1[1]*B - point_1[2]*C
 divide_by = math.sqrt(A**2 + B**2 + C**2)
 vector = [A/divide_by, B/divide_by, C/divide_by]
+print(vector)
+print(D)
 
 cube_moved = cube_shape.transform([
     [1,0,0,0],
@@ -185,3 +187,43 @@ cube_inverted_plane.draw()
 
 #task 6/7
 print("task 6")
+first_point = cube_shape.shape.values.tolist()[0]
+distance = (A*first_point[0] + B*first_point[1] + C*first_point[2] + D)/divide_by
+first_point_desired_position = [first_point[0]+distance*vector[0],first_point[1]+distance*vector[1],first_point[2]+distance*vector[2]]
+cube_moved_to_center = cube_shape.transform([
+    [1,0,0,-first_point[0]],
+    [0,1,0,-first_point[1]],
+    [0,0,1,-first_point[2]]
+])
+cube_moved_to_center.draw()
+
+cube_mirrored_X = cube_moved_to_center.transform([
+    [-1,0,0,0],
+    [0,1,0,0],
+    [0,0,1,0]
+])
+cube_mirrored_X.draw()
+
+cube_rotated_oz = cube_mirrored_X.transform([
+    [cos_fi, -sin_fi,0,0],
+    [sin_fi, cos_fi,0,0],
+    [0,0,1,0]
+])
+cube_rotated_oz.draw()
+
+cube_rotated_oy = cube_rotated_oz.transform([
+    [cos_ksi,0,sin_ksi,0],
+    [0,1,0,0],
+    [-sin_ksi, 0, cos_ksi,0]
+])
+cube_rotated_oy.draw()
+
+cube_inverted = cube_rotated_oy.transform([
+    [1,0,0,first_point_desired_position[0]],
+    [0,1,0,first_point_desired_position[1]],
+    [0,0,1,first_point_desired_position[2]]
+])
+cube_inverted.draw()
+
+print(cube_inverted_plane.shape)
+print(cube_inverted.shape)
