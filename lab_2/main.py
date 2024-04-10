@@ -302,7 +302,7 @@ cube_flat = cube_rotated_oy.transform([
 ])
 cube_flat.draw("Проєкція куба на XOY (Z=0)")
 
-cube_rerotated_oy = cube_inverted.transform([
+cube_rerotated_oy = cube_flat.transform([
     [cos_ksi, 0, sin_ksi, 0],
     [0, 1, 0, 0],
     [-sin_ksi, 0, cos_ksi, 0]
@@ -314,11 +314,11 @@ cube_rerotated_oz = cube_rerotated_oy.transform([
     [sin_fi, cos_fi, 0, 0],
     [0, 0, 1, 0]
 ])
-cube_rerotated_oz.draw("Поворот в попереднє положення OZ")
+cube_rerotated_oz.draw("Поворот в попереднє положення навколо OZ")
 
 cube_flat_plane = cube_rerotated_oz.transform([
     [1, 0, 0, 0],
     [0, 1, 0, 0],
     [0, 0, 1, -D / C]
 ])
-cube_inverted_plane.draw("Повернення початку координат в початкове положення")
+cube_flat_plane.draw("Повернення початку координат в початкове положення")
