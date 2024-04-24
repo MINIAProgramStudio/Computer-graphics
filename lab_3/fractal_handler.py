@@ -1,14 +1,17 @@
 import turtle
+
 turtle.setup(1000, 1000, 10, 10)
-def draw_l_fractal(l_string,step,angle, name = ""):
+
+
+def draw_l_fractal(l_string, step, angle, name=""):
     turtle.speed(0)
     turtle.hideturtle()
     turtle.tracer(False)
     turtle.pendown()
     turtle.title(name)
-    turtle.setworldcoordinates(-500,-500,1000,1000)
+    turtle.setworldcoordinates(-500, -500, 1000, 1000)
     for character in l_string:
-        match(character):
+        match (character):
             case "F":
                 turtle.forward(step)
             case "+":
@@ -21,6 +24,7 @@ def draw_l_fractal(l_string,step,angle, name = ""):
     input()
     turtle.reset()
 
+
 def iterate(l_string, dictionary):
     keys = dictionary.keys()
     new_l_string = ""
@@ -31,9 +35,10 @@ def iterate(l_string, dictionary):
             new_l_string += character
     return new_l_string
 
-def draw_nth_l_fractal(l_string, dictionary, step, angle, power = 0, name = ""):
+
+def draw_nth_l_fractal(l_string, dictionary, step, angle, power=0, name=""):
     print("calculating")
     for i in range(power):
-        l_string = iterate(l_string,dictionary)
+        l_string = iterate(l_string, dictionary)
     print("drawing")
-    draw_l_fractal(l_string,step,angle,name)
+    draw_l_fractal(l_string, step, angle, name)
