@@ -20,5 +20,3 @@ for i in range(1,6):
         "X":"XFYFX+F+YFXFY-F-XFYFX",
         "Y":"YFXFY-F-XFYFX+F+YFXFY"
     }, 200/(i**3+1),90,i,"Фрактальна крива Пеано")
-
-print(sys.getsizeof(fh.memory))
