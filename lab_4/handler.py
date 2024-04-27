@@ -1,6 +1,5 @@
 import random
 import numpy as np
-import importlib
 import matplotlib.pyplot as plt
 
 class Fractal:
@@ -16,11 +15,12 @@ class Fractal:
             while set_r > 0:
                 set_pos+=1
                 set_r -= self.sets[set_pos]["p"]
+
+                
             set = self.sets[set_pos]
             self.x.append(self.x[-1]*set["a"] + self.y[-1]*set["b"] + set["e"])
             self.y.append(self.x[-1]*set["c"] + self.y[-1]*set["d"] + set["f"])
 
     def draw(self):
-        importlib.reload(plt)
         plt.scatter(self.x, self.y, s = 0.1)
         plt.show()
