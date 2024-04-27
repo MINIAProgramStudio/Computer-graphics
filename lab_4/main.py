@@ -1,21 +1,11 @@
 import handler as h
 
-square = h.Rectangle(0,0,0,1,1)
-rectangle_1 = h.Rectangle(-0.5,0.5,-35, 1, 0.5)
-rectangle_2 = h.Rectangle(0.5,0.5,30,1.5,0.5)
-
-generator = h.RectangleGroup(0,0,0,1,1, [
-    square,
-    rectangle_1,
-    rectangle_2
-])
-square_group = h.RectangleGroup(0,0,0,1,1, [
-    square
+fractal = h.Fractal([
+    {"a": 0.14, "b": 0.01, "c": 0, "d": 0.51, "e": -0.08, "f": 1.31},
+    {"a": 0.43, "b": 0.52, "c": -0.45, "d": 0.5, "e": 1.49, "f": -0.75},
+    {"a": 0.45, "b": -0.49, "c": 0.47, "d": 0.47, "e": -1.62, "f": -0.74},
+    {"a": 0.49, "b": 0, "c": 0, "d": 0.51, "e": 0.02, "f": 1.62},
 ])
 
-square_group.draw(step = 100)
-input()
-for i in range(5):
-    square_group.iterate(generator)
-    square_group.draw(step = 100)
-    input()
+fractal.iterate(100000)
+fractal.draw()
