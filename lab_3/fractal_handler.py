@@ -25,7 +25,6 @@ def draw_l_fractal(l_string, step, angle, name="",t_reset = True, wait = True):
     if wait:
         input()
     if t_reset:
-
         turtle.reset()
 
 def animate(l_string, step, angle_min, angle_max, angle_step = 1, sleep = 1, name = ""):

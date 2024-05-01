@@ -19,8 +19,10 @@ class Fractal:
                 
             set = self.sets[set_pos]
             self.x.append(self.x[-1]*set["a"] + self.y[-1]*set["b"] + set["e"])
-            self.y.append(self.x[-1]*set["c"] + self.y[-1]*set["d"] + set["f"])
+            self.y.append(self.x[-2]*set["c"] + self.y[-1]*set["d"] + set["f"])
 
-    def draw(self):
-        plt.scatter(self.x, self.y, s = 0.1)
+    def draw(self,min_dot = 0):
+        fig, ax = plt.subplots()
+        ax.scatter(self.x[min_dot:], self.y[min_dot:], s = 0.01)
         plt.show()
+        plt.close(fig)
