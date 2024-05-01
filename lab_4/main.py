@@ -151,4 +151,4 @@ ifschristmasstree = h.Fractal([
 ifschristmasstree.iterate(100000)
 ifschristmasstree.draw()
 
-ifsct.animate(0.5,1000)
+ifsct.animate(50,100)

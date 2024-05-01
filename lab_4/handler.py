@@ -2,6 +2,7 @@ import random
 import matplotlib.pyplot as plt
 import matplotlib.animation as anime
 import math
+import time
 
 class Fractal:
     def __init__(self, sets):
@@ -45,19 +46,25 @@ class Fractal:
         x = []
         y = []
         def frame(frame):
+            global x,y
             ax.clear()
             if wait != self.animation["wait"] or steps != self.animation["steps"] or frame == 0:
                 self.animation["counter"] = 0
                 self.animation["wait"] = wait
                 self.animation["steps"] = steps
+                x = []
+                y = []
             window = len(self.x) // steps
             self.animation["counter"] += 1
             self.animation["counter"] %= steps
-            x = self.x[:self.animation["counter"] * window]
-            y = self.y[:self.animation["counter"] * window]
+            x.append(self.x[self.animation["counter"] * window:(self.animation["counter"]+1) * window])
+            y.append(self.y[self.animation["counter"] * window:(self.animation["counter"]+1) * window])
             ax.scatter(x,y,s = 0.025)
+            ax.set_title(str(frame)+"/"+str(steps))
         an = anime.FuncAnimation(fig, frame, interval = wait,frames = steps)
         plt.show()
+        an.save("gifs\\" + str(time.localtime().tm_hour) + str(time.localtime().tm_min) + str(
+            time.localtime().tm_sec) + '.gif', writer=anime.PillowWriter(fps=30))
         plt.close(fig)
 
 
