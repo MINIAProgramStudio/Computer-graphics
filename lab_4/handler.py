@@ -1,13 +1,11 @@
 import random
-import numpy as np
 import matplotlib.pyplot as plt
 
 class Fractal:
     def __init__(self, sets):
         self.sets = sets
-    sets = [{}]
-    x = [0]
-    y = [0]
+        self.x = [0]
+        self.y = [0]
     def iterate(self, times):
         for i in range(times):
             set_r = random.random()
