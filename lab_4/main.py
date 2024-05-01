@@ -38,7 +38,7 @@ fractaltree = h.Fractal([
 ])
 fractaltree.iterate(100000)
 fractaltree.draw()
-"""
+
 fractaltree2 = h.Fractal([
     {"r": 0.05, "s": 0.6, "teta": 0, "fi": 0, "e": 0, "f":0, "p":0.166666},
     {"r": 0.05, "s": -0.5, "teta": 0, "fi": 0, "e": 0, "f":1, "p":0.166666},
@@ -49,3 +49,15 @@ fractaltree2 = h.Fractal([
 ])
 fractaltree2.iterate_classical(100000)
 fractaltree2.draw()
+
+fractaltree3 = h.Fractal([
+    {"a": 0.01, "b": 0, "c": 0, "d": 0.45, "e": 0, "f": 0, "p": 0.25},
+    {"a": -0.01, "b": 0, "c": 0, "d": -0.45, "e": 0, "f": 0.4, "p": 0.25},
+    {"a": 0.42, "b": -0.42, "c": 0.42, "d": 0.42, "e": 0, "f": 0.4, "p": 0.25},
+    {"a": 0.42, "b": 0.42, "c": -0.42, "d": 0.42, "e": 0, "f": 0.4, "p": 0.25},
+])
+fractaltree3.iterate(100000)
+fractaltree3.draw()
+"""
+
+fractaltree4 = h.Fractal
