@@ -1,5 +1,6 @@
 import random
 import matplotlib.pyplot as plt
+import math
 
 class Fractal:
     def __init__(self, sets):
@@ -19,8 +20,20 @@ class Fractal:
             self.x.append(self.x[-1]*set["a"] + self.y[-1]*set["b"] + set["e"])
             self.y.append(self.x[-2]*set["c"] + self.y[-1]*set["d"] + set["f"])
 
+    def iterate_classical(self, times):
+        for i in range(times):
+            set_r = random.random()
+            set_pos = -1
+            while set_r > 0:
+                set_pos += 1
+                set_r -= self.sets[set_pos]["p"]
+
+            set = self.sets[set_pos]
+            self.x.append(self.x[-1] * set["r"] * math.cos(set["teta"]) - self.y[-1] * set["s"] * math.sin(set["fi"]) + set["e"])
+            self.y.append(self.x[-2] * set["r"] * math.sin(set["teta"]) + self.y[-1] * set["s"] * math.cos(set["fi"]) + set["f"])
+
     def draw(self,min_dot = 0):
         fig, ax = plt.subplots()
-        ax.scatter(self.x[min_dot:], self.y[min_dot:], s = 0.01)
+        ax.scatter(self.x[min_dot:], self.y[min_dot:], s = 0.025)
         plt.show()
         plt.close(fig)
