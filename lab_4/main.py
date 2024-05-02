@@ -151,4 +151,20 @@ ifschristmasstree = h.Fractal([
 ifschristmasstree.iterate(100000)
 ifschristmasstree.draw()
 
+#task 5
+"""
+leaf.animate(50,100)
+spiral.animate(50,100)
+manderbrotlike.animate(50,100)
+fractaltree.animate(50,100)
+fractaltree2.animate(50,100)
+fractaltree3.animate(50,100)
+fractaltree4.animate(50,100)
+leaf2.animate(50,100)
+snowflake.animate(50,100)
+paporot.animate(50,100)
 ifsct.animate(50,100)
+ifsdragon.animate(50,100)
+ifsbranch.animate(50,100)
+ifschristmasstree.animate(50,100)
+"""
