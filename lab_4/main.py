@@ -1,7 +1,6 @@
 import handler as h
-import math
 
-
+"""
 leaf = h.Fractal([
     {"a": 0.14, "b": 0.01, "c": 0, "d": 0.51, "e": -0.08, "f": -1.31, "p": 0.25},
     {"a": 0.43, "b": 0.52, "c": -0.45, "d": 0.5, "e": 1.49, "f": -0.75, "p": 0.25},
@@ -152,7 +151,7 @@ ifschristmasstree.iterate(100000)
 ifschristmasstree.draw()
 
 #task 5
-"""
+
 leaf.animate(50,100)
 spiral.animate(50,100)
 manderbrotlike.animate(50,100)
@@ -168,3 +167,31 @@ ifsdragon.animate(50,100)
 ifsbranch.animate(50,100)
 ifschristmasstree.animate(50,100)
 """
+#task 6
+leafstrong = h.Fractal([
+    {"a": 0.14, "b": 0.01, "c": 0, "d": 0.51, "e": -0.08, "f": 1.31, "p": 0.25},
+    {"a": 0.43, "b": 0.52, "c": -0.45, "d": 0.5, "e": 1.49, "f": -0.75, "p": 0.25},
+    {"a": 0.45, "b": -0.49, "c": 0.47, "d": 0.47, "e": -1.62, "f": -0.74, "p": 0.25},
+    {"a": 0.49, "b": 0, "c": 0, "d": 0.51, "e": 0.02, "f": 1.62, "p": 0.25},
+])
+leafstrong.iterate(100000)
+leafstrong.draw()
+
+forest_and_stars_near_the_lake = h.Fractal([
+    {"a": 0, "b": 0, "c": 0, "d": 0.9, "e": 0, "f": 0.1, "p": 0.1},
+    {"a": 0.9, "b": 0, "c": 0, "d": 1, "e": 0.1, "f": 0.01, "p": 0.45},
+    {"a": -0.9, "b": 0, "c": 0, "d": 1, "e": -0.1, "f": 0.01, "p": 0.45},
+
+])
+forest_and_stars_near_the_lake.iterate(100000)
+forest_and_stars_near_the_lake.draw()
+
+spiral2 = h.Fractal([
+    {"r": 0.5, "s": 0.5, "teta": 0, "fi": 0, "e": 1, "f": 1, "p": 0.2},
+    {"r": 0.9, "s": 0.9, "teta": 2.5, "fi": 2.5, "e": 0, "f": 0, "p": 0.2},
+    {"r": 0.9, "s": 0.9, "teta": -2.5, "fi": 2.5, "e": 0, "f": 0, "p": 0.2},
+    {"r": 0.9, "s": 0.9, "teta": 2.5, "fi": -2.5, "e": 0, "f": 0, "p": 0.2},
+    {"r": 0.9, "s": 0.9, "teta": -2.5, "fi": -2.5, "e": 0, "f": 0, "p": 0.2},
+])
+spiral2.iterate_classical(100000)
+spiral2.draw()

@@ -38,7 +38,7 @@ class Fractal:
     def draw(self,min_dot = 0):
         fig, ax = plt.subplots()
         ax.scatter(self.x[min_dot:], self.y[min_dot:], s = 0.025)
-        #plt.show()
+        plt.show()
         plt.close(fig)
 
     def animate(self, wait, steps):
