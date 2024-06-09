@@ -17,4 +17,3 @@ while True:
     result.show()
     result.path = "output/result.png"
     result.save()
-    break

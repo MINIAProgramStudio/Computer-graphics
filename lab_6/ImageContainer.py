@@ -107,7 +107,7 @@ def monochrome_to_binary(input_IC):
         return output_IC
 
 
-def monochrome_binary_slice(input_IC, channel=2, bit=1, ):
+def monochrome_binary_slice(input_IC, channel=2, bit=1):
     output_IC = copy.deepcopy(input_IC)
     pos_y = 0
     for row in input_IC.data:
