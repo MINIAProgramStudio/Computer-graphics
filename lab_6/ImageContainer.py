@@ -135,13 +135,14 @@ def built_in_text(input_IC, binary_text, channel = 2, bit = 1):
     output_IC = copy.deepcopy(input_IC)
     binary_length = len(binary_text)
     pos_y = 0
+    width = len(input_IC.data[0])
     for row in input_IC.data:
         pos_x = 0
         for pixel in row:
             value = pixel[channel]
             unbited_value = value - int((value % (2 ** bit)) / (2 ** (bit - 1)))
-            bit_to_be_bitted = int(binary_text())
-            bitted_value = unbited_value + int() * (2 ** (bit - 1))
+            bit_to_be_bitted = int(binary_text[(pos_y*width+pos_x)%binary_length])
+            bitted_value = unbited_value + bit_to_be_bitted * (2 ** (bit - 1))
             output_IC.data[pos_y][pos_x][channel] = bitted_value
             pos_x += 1
         pos_y += 1
